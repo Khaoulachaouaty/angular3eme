@@ -1,0 +1,16 @@
+<form>
+    <div [hidden]="ajout" >
+        <label>ID Editeur</label>
+        <input type="text" [(ngModel)]="editeur.idEd" name="idEditeur" class="form-control w-25">
+    </div>
+    <div>
+        <label>Nom Editeur</label>
+        <input type="text" [(ngModel)]="editeur.nomEd" name="nomEditeur" class="form-control"
+            placeholder="Entrez un nom de editeur...">
+    </div>
+    <div class="mt-2">
+        <button type="submit" [disabled]="!editeur.nomEd" class="btn btn-success"
+            (click)="saveEditeur()">{{ajout ? 'Ajouter' : 'Modifier'}}
+        </button>
+    </div>
+</form>

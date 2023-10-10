@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+    <app-update-editeur [editeur]="updatedEd" 
+                        (editeurUpdated)= "editeurUpdated($event)"
+                        [ajout]="ajout">
+    </app-update-editeur>
+    </div>
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nom Editeur</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let ed of editeurs">
+                    <tr>
+                        <td>{{ed.idEd}}</td>
+                        <td>{{ed.nomEd}}</td>
+                        <td><a class="btn btn-success" (click)="updateEd(ed)">Editer</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
