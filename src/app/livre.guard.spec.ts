@@ -1,9 +1,7 @@
 import { TestBed } from '@angular/core/testing';
-import { CanActivateFn } from '@angular/router';
-
 import { LivreGuard } from './livre.guard';
 
-describe('LivreGuard', () => {
+describe('ProduitGuard', () => {
   let guard: LivreGuard;
 
   beforeEach(() => {

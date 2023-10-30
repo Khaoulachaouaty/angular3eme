@@ -7,7 +7,7 @@
                 <th>Liste de Livres</th>
             </tr>
         </thead>
-    <tr> <th>Id</th><th>Nom</th> <th>Prix</th> <th>Date Publication</th><th>Editeur</th> </tr>
+    <tr> <th>Id</th><th>Nom</th> <th>Prix</th> <th>Date Publication</th><th>Editeur</th><th>Image</th> </tr>
     <tbody *ngFor="let livre of livres">
     <tr >
     <td>{{livre.idLivre}}</td>
@@ -15,6 +15,10 @@
     <td>{{livre.prixLivre}}</td>
     <td>{{livre.datePublication | date:'dd/MM/yyyy'}}</td>
     <td>{{livre.editeur.nomEd}}</td>
+    <td><img class="card-img-top img-responsive"
+        src="{{apiurl+'/image/loadfromFS/'+livre.idLivre}}"
+        style = "height :50px;width:100px">
+        </td>
 
     <td><a *ngIf="authService.isAdmin()" class="btn btn-success" [routerLink]="['/updateLivre',livre.idLivre]">Modifier</a></td>
     <td><a *ngIf="authService.isAdmin()" class="btn btn-danger" (click)="supprimerLivre(livre)">Supprimer</a></td>

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +17,7 @@ import { ListeEditeursComponent } from './liste-editeurs/liste-editeurs.componen
 import { UpdateEditeurComponent } from './update-editeur/update-editeur.component';
 import { LoginComponent } from './login/login.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
+import { TokenInterceptor } from './services/token.interceptor';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,11 @@ import { ForbiddenComponent } from './forbidden/forbidden.component';
     FormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [{ provide : HTTP_INTERCEPTORS,
+    useClass : TokenInterceptor,
+    multi : true}
+     ],
+    
   bootstrap: [AppComponent]
 })
 export class AppModule { }

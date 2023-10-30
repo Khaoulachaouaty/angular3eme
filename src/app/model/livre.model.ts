@@ -1,4 +1,5 @@
 import { Editeur } from "./editeur.model";
+import { Image } from "./image.model";
 
 export class Livre {
     idLivre? : number;
@@ -6,5 +7,7 @@ export class Livre {
     prixLivre? : number;
     datePublication? : Date ;
     editeur! : Editeur;
-
+    image! : Image;
+    imageStr!:string;
+    images!: Image[];
     }
